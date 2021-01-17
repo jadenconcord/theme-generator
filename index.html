@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Theme Generator 2</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <main>
+    <div class="content">
+      <div class="template">
+        <template>
+          <h1>Theme Generator 2</h1>
+          <p>This is color / theme generator second verson</p>
+          <br><button class="b1" onclick="randomize()">Randomize Theme</button>
+          {inputText name="themeName" label="Theme Name" placeholder="My Theme"/}
+          {inputSelect name="themeType" label="Theme Type"
+          options="disabled:Select Option,!1:Dark Theme,2:Light Theme,3:Dark with light content,4:Light with dark parts"/}
+          {inputSelect name="units" label="Units" options="!px:px,em:em,rem:rem"/}
+          <br><h2>Colors</h2>
+          <hr>
+          {inputColor name="mainColor" label="Theme Color" placeholder="#XXXXXX" value="#d95448"/}
+          {inputColor name="secondaryColor" label="Secondary Theme Color" placeholder="#XXXXXX" value="#4893d9"/}
+          {inputColor name="black1" label="Black" placeholder="#XXXXXX" value="#15151E"/}
+          {inputColor name="black2" label="Black Content" placeholder="#XXXXXX" value="#353447"/}
+          {inputColor name="white1" label="White" placeholder="#XXXXXX" value="#e5d9c5"/}
+          {inputColor name="white2" label="White Darker" placeholder="#XXXXXX" value="#c6bda7"/}
+          <br><br><h2>Measures</h2>
+          <hr>
+          {inputText name="borderWidth" label="Border Width" value="2"/}
+          {inputText name="border1" label="Border Radius Small" value="4"/}
+          {inputText name="border2" label="Border Radius Big" value="8"/}
+          {inputText name="transition" label="Transition time in seconds" value="0.2"/}
+          {inputText name="font" label="Font List" value="Ubuntu, Roboto, Oxygen, -apple-system, BlinkMacSystemFont, Segoe UI, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif"/}
+          <br><br><h2>Shadows</h2>
+          <hr>
+
+          {inputSwitch name="useShadow" label="Enable Shadows" onchange="document.querySelector('.shadow-options').open = this.checked" checked/}
+          <details class="shadow-options" open>
+            <summary style="display:none">Shadow Options</summary>
+            {inputText name="shadowX" label="Shadow X offset" value="0"/}
+            {inputText name="shadowY" label="Shadow Y offset" value="2"/}
+            {inputText name="shadowBlur" label="Shadow Blur" value="5"/}
+            {inputText name="shadowSpread" label="Shadow Spread" value="1"/}
+            {inputText name="shadowOpacity" label="Shadow Opacity" value="0.4"/}
+          </details>
+          <br><br><button class="b2" onclick="generate()">Generate</button>
+        </template>
+      </div>
+      <br><br>
+    </div>
+  </main>
+
+  <div class="pallate">
+    <div class="left">
+      <div class="b3"></div>
+      <div class="theme"></div>
+      <div class="w1"></div>
+      <div class="w3"></div>
+      <div class="theme2"></div>
+    </div><div class="right">
+      <div class="w3"></div>
+      <div class="theme"></div>
+      <div class="b1"></div>
+      <div class="b3"></div>
+      <div class="theme2"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <script src="js/framework.js" charset="utf-8"></script>
+  <script src="js/main.js" charset="utf-8"></script>
+</body>
+
+</html>
