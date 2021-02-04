@@ -1,108 +1,18 @@
-// Theme Old Theme
-// Options (you can change these)
-$theme: #4054a1;
-$theme-secondary: #40a16f;
-$black-darker: #1d1d2a;
-$black-lighter: #33334b;
-$white-lighter: #dcdaf2;
-$white-darker: #aca8cb;
-$border-width: 2px;
-$border-radius1: 4px;
-$border-radius2: 8px;
-$transition-time: 0.2s;
-// Varables (dont use fixed values here)
-$theme-dark: saturate(darken($theme, 5%), 5%);
-$theme-bright: desaturate(lighten($theme, 5%), 5%);
-$theme2: $theme-secondary;
-$theme2-dark: saturate(darken($theme2, 5%), 5%);
-$theme2-bright: desaturate(lighten($theme2, 5%), 5%);
-$theme-red: adjust-hue($theme, - hue($theme));
-$theme-yellow: adjust-hue($theme, - hue($theme) + 60deg);
-$theme-green: adjust-hue($theme, - hue($theme) + 120deg);
-$theme-blue: adjust-hue($theme, - hue($theme) + 240deg);
-$black1: $black-darker;
-$black4: $black-lighter;
-$black2: mix($black1, $black4, 75%);
-$black3: mix($black1, $black4, 25%);
-$black0: saturate(darken($black1, 5%), 5%);
-$black5: mix($black1, $white-lighter, 80%);
-$white1: $white-lighter;
-$white4: $white-darker;
-$white2: mix($white1, $white4, 75%);
-$white3: mix($white1, $white4, 25%);
-$white0: desaturate(lighten($white1, 5%), 5%);
-$border-radius0: $border_radius1 / 2;
-$border-radius3: $border_radius2 * 2;
-
-
-
-
-
-@import 'default';
-
-
-
-
-
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-body{
-  background: $black1;
-}
-
-main {
-  .content {
-    margin: 0 auto;
-    width: 600px;
-    min-height: 100vh;
-    background: $black4;
-    color: $white2;
-    padding: 22px 33px;
-    border-left: $border-width solid $theme;
-    border-right: $border-width solid $theme;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// My Theme {test}//
+// Unnamed //
 
 // Options
-$theme-name: 'My Theme';
+$theme-name: 'Unnamed';
 $theme-type: 1;
-$theme: #d95448;
-$theme2: #4893d9;
-$black1: #15151E;
-$black4: #353447;
-$white1: #e5d9c5;
-$white4: #c6bda7;
-$border-width: 2px;
-$radius1: 4px;
-$radius2: 8px;
-$transition-time: 0.2s;
+$theme: hsl(-140,60%,60%);
+$theme2: hsl(163,60%,60%);
+$black1: hsl(163,8%,15%);
+$black4: hsl(163,4%,23%);
+$white1: hsl(197,10%,90%);
+$white4: hsl(197,5%,84%);
+$border-width: 1px;
+$radius1: 2px;
+$radius2: 4px;
+$transition-time: 0.1s;
 $font: Ubuntu, Roboto, Oxygen, -apple-system, BlinkMacSystemFont, Segoe UI, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 $shadow-x: 0px;
 $shadow-y: 2px;
@@ -133,316 +43,254 @@ $white3: mix($white1, $white4, 25%);
 $white0: desaturate(lighten($white1, 5%), 5%);
 $white5: mix($black0, $white4, 10%);
 
-$radius0: $border_radius1 / 2;
-$radius3: $border_radius2 * 2;
+$radius0: $radius1 / 2;
+$radius3: $radius2 * 2;
 
 $shadow-color-black: rgba($black1, $shadow-opacity);
 $shadow-color-white: rgba($white1, $shadow-opacity/1.5);
 
-$A0: $black0;
-$A1: $black1;
-$A2: $black2;
-$A3: $black3;
-$A4: $black4;
-$A5: $black5;
+$bg0: var(--bg0);
+$bg1: var(--bg1);
+$bg2: var(--bg2);
+$bg3: var(--bg3);
+$bg4: var(--bg4);
+$bg5: var(--bg5);
 
-$AA0: $white0;
-$AA1: $white1;
-$AA2: $white2;
-$AA3: $white3;
-$AA4: $white4;
-$AA5: $white5;
+$fg0: var(--fg0);
+$fg1: var(--fg1);
+$fg2: var(--fg2);
+$fg3: var(--fg3);
+$fg4: var(--fg4);
+$fg5: var(--fg5);
 
-$B0: $black0;
-$B1: $black1;
-$B2: $black2;
-$B3: $black3;
-$B4: $black4;
-$B5: $black5;
+@mixin navigator{
+  @if ($theme-type == 1 or $theme-type == 3 or $theme-type == 4){
+    --bg0: #{$black0};
+    --bg1: #{$black1};
+    --bg2: #{$black2};
+    --bg3: #{$black3};
+    --bg4: #{$black4};
+    --bg5: #{$black5};
 
-$BB0: $white0;
-$BB1: $white1;
-$BB2: $white2;
-$BB3: $white3;
-$BB4: $white4;
-$BB5: $white5;
+    --fg0: #{$white0};
+    --fg1: #{$white1};
+    --fg2: #{$white2};
+    --fg3: #{$white3};
+    --fg4: #{$white4};
+    --fg5: #{$white5};
+  }
+  @else {
+    --bg0: #{$white0};
+    --bg1: #{$white1};
+    --bg2: #{$white2};
+    --bg3: #{$white3};
+    --bg4: #{$white4};
+    --bg5: #{$white5};
 
-@if $theme-type == 1 { // Dark Theme
-  $A0: $black0;
-  $A1: $black1;
-  $A2: $black2;
-  $A3: $black3;
-  $A4: $black4;
-  $A5: $black5;
-
-  $AA0: $white0;
-  $AA1: $white1;
-  $AA2: $white2;
-  $AA3: $white3;
-  $AA4: $white4;
-  $AA5: $white5;
-
-  $B0: $black0;
-  $B1: $black1;
-  $B2: $black2;
-  $B3: $black3;
-  $B4: $black4;
-  $B5: $black5;
-
-  $BB0: $white0;
-  $BB1: $white1;
-  $BB2: $white2;
-  $BB3: $white3;
-  $BB4: $white4;
-  $BB5: $white5;
-}
-@else if $theme-type == 2 { // Light theme
-  $A0: $white0;
-  $A1: $white1;
-  $A2: $white2;
-  $A3: $white3;
-  $A4: $white4;
-  $A5: $white5;
-
-  $AA0: $black0;
-  $AA1: $black1;
-  $AA2: $black2;
-  $AA3: $black3;
-  $AA4: $black4;
-  $AA5: $black5;
-
-  $BB0: $black0;
-  $BB1: $black1;
-  $BB2: $black2;
-  $BB3: $black3;
-  $BB4: $black4;
-  $BB5: $black5;
-
-  $B0: $white0;
-  $B1: $white1;
-  $B2: $white2;
-  $B3: $white3;
-  $B4: $white4;
-  $B5: $white5;
-}
-@else if $theme-type == 3 { // Dark with light
-  $A0: $black0;
-  $A1: $black1;
-  $A2: $black2;
-  $A3: $black3;
-  $A4: $black4;
-  $A5: $black5;
-
-  $AA0: $white0;
-  $AA1: $white1;
-  $AA2: $white2;
-  $AA3: $white3;
-  $AA4: $white4;
-  $AA5: $white5;
-
-  $BB0: $black0;
-  $BB1: $black1;
-  $BB2: $black2;
-  $BB3: $black3;
-  $BB4: $black4;
-  $BB5: $black5;
-
-  $B0: $white0;
-  $B1: $white1;
-  $B2: $white2;
-  $B3: $white3;
-  $B4: $white4;
-  $B5: $white5;
-}
-@else if $theme-type == 4 { // Light with dark
-  $A0: $white0;
-  $A1: $white1;
-  $A2: $white2;
-  $A3: $white3;
-  $A4: $white4;
-  $A5: $white5;
-
-  $AA0: $black0;
-  $AA1: $black1;
-  $AA2: $black2;
-  $AA3: $black3;
-  $AA4: $black4;
-  $AA5: $black5;
-
-  $B0: $black0;
-  $B1: $black1;
-  $B2: $black2;
-  $B3: $black3;
-  $B4: $black4;
-  $B5: $black5;
-
-  $BB0: $white0;
-  $BB1: $white1;
-  $BB2: $white2;
-  $BB3: $white3;
-  $BB4: $white4;
-  $BB5: $white5;
+    --fg0: #{$black0};
+    --fg1: #{$black1};
+    --fg2: #{$black2};
+    --fg3: #{$black3};
+    --fg4: #{$black4};
+    --fg5: #{$black5};
+  }
+  color: $fg2;
 }
 
+@mixin content{
+  @if ($theme-type == 1){
+    --bg0: #{$black0};
+    --bg1: #{$black1};
+    --bg2: #{$black2};
+    --bg3: #{$black3};
+    --bg4: #{$black4};
+    --bg5: #{$black5};
 
-:root{
-  // CSS Variables
-  --theme-name: #{$theme-name};
+    --fg0: #{$white0};
+    --fg1: #{$white1};
+    --fg2: #{$white2};
+    --fg3: #{$white3};
+    --fg4: #{$white4};
+    --fg5: #{$white5};
+  }
+  @else {
+    --bg0: #{$white0};
+    --bg1: #{$white1};
+    --bg2: #{$white2};
+    --bg3: #{$white3};
+    --bg4: #{$white4};
+    --bg5: #{$white5};
 
-  --theme: #{$theme};
-  --theme-dark: #{$theme-dark};
-  --theme-light: #{$theme-light};
-  --theme2: #{$theme2};
-  --theme2-dark: #{$theme2-dark};
-  --theme2-light: #{$theme2-light};
-
-  --theme-red: #{$theme-red};
-  --theme-yellow: #{$theme-yellow};
-  --theme-green: #{$theme-green};
-  --theme-blue: #{$theme-blue};
-
-  --black0: #{$black0};
-  --black1: #{$black1};
-  --black2: #{$black2};
-  --black3: #{$black3};
-  --black4: #{$black4};
-  --black5: #{$black5};
-
-  --white0: #{$white0};
-  --white1: #{$white1};
-  --white2: #{$white2};
-  --white3: #{$white3};
-  --white4: #{$white4};
-  --white5: #{$white5};
-
-  --border-width: #{$border-width};
-
-  --radius0: #{$radius0};
-  --radius1: #{$radius1};
-  --radius2: #{$radius2};
-  --radius3: #{$radius3};
-
-  --transition-time: #{$transition-time};
-  --font: #{$font};
-
-  --shadow-x: #{$shadow-x};
-  --shadow-y: #{$shadow-y};
-  --shadow-blur: #{$shadow-blur};
-  --shadow-spread: #{$shadow-spread};
-  --shadow-color-black: #{$shadow-color-black};
-  --shadow-color-white: #{$shadow-color-white};
-
-  --A0: #{$A0};
-  --A1: #{$A1};
-  --A2: #{$A2};
-  --A3: #{$A3};
-  --A4: #{$A4};
-  --A5: #{$A5};
-
-  --AA0: #{$AA0};
-  --AA1: #{$AA1};
-  --AA2: #{$AA2};
-  --AA3: #{$AA3};
-  --AA4: #{$AA4};
-  --AA5: #{$AA5};
-
-  --B0: #{$B0};
-  --B1: #{$B1};
-  --B2: #{$B2};
-  --B3: #{$B3};
-  --B4: #{$B4};
-  --B5: #{$B5};
-
-  --BB0: #{$BB0};
-  --BB1: #{$BB1};
-  --BB2: #{$BB2};
-  --BB3: #{$BB3};
-  --BB4: #{$BB4};
-  --BB5: #{$BB5};
+    --fg0: #{$black0};
+    --fg1: #{$black1};
+    --fg2: #{$black2};
+    --fg3: #{$black3};
+    --fg4: #{$black4};
+    --fg5: #{$black5};
+  }
+  color: $fg2;
 }
 
-// Shortcuts
-$theme: var(--theme);
-$theme-dark: var(--theme-dark);
-$theme-light: var(--theme-light);
-$theme2: var(--theme2);
-$theme2-dark: var(--theme2-dark);
-$theme2-light: var(--theme2-light);
+@mixin section{
+  @if ($theme-type == 1 or $theme-type == 4){
+    --bg0: #{$black0};
+    --bg1: #{$black1};
+    --bg2: #{$black2};
+    --bg3: #{$black3};
+    --bg4: #{$black4};
+    --bg5: #{$black5};
 
-$theme-red: var(--theme-red);
-$theme-yellow: var(--theme-yellow);
-$theme-green: var(--theme-green);
-$theme-blue: var(--theme-blue);
+    --fg0: #{$white0};
+    --fg1: #{$white1};
+    --fg2: #{$white2};
+    --fg3: #{$white3};
+    --fg4: #{$white4};
+    --fg5: #{$white5};
+  }
+  @else {
+    --bg0: #{$white0};
+    --bg1: #{$white1};
+    --bg2: #{$white2};
+    --bg3: #{$white3};
+    --bg4: #{$white4};
+    --bg5: #{$white5};
 
-$black0: var(--black0);
-$black1: var(--black1);
-$black2: var(--black2);
-$black3: var(--black3);
-$black4: var(--black4);
-$black5: var(--black5);
+    --fg0: #{$black0};
+    --fg1: #{$black1};
+    --fg2: #{$black2};
+    --fg3: #{$black3};
+    --fg4: #{$black4};
+    --fg5: #{$black5};
+  }
+  color: $fg2;
+}
 
-$white0: var(--white0);
-$white1: var(--white1);
-$white2: var(--white2);
-$white3: var(--white3);
-$white4: var(--white4);
-$white5: var(--white5);
+@mixin sidebar{
+  @if ($theme-type == 1 or $theme-type == 3 or $theme-type == 4 or $theme-type == 5){
+    --bg0: $black0;
+    --bg1: $black1;
+    --bg2: $black2;
+    --bg3: $black3;
+    --bg4: $black4;
+    --bg5: $black5;
 
-$border-width: var(--border-width);
+    --fg0: $white0;
+    --fg1: $white1;
+    --fg2: $white2;
+    --fg3: $white3;
+    --fg4: $white4;
+    --fg5: $white5;
+  }
+  @else {
+    --bg0: $white0;
+    --bg1: $white1;
+    --bg2: $white2;
+    --bg3: $white3;
+    --bg4: $white4;
+    --bg5: $white5;
 
-$radius0: var(--radius0);
-$radius1: var(--radius1);
-$radius2: var(--radius2);
-$radius3: var(--radius3);
+    --fg0: $black0;
+    --fg1: $black1;
+    --fg2: $black2;
+    --fg3: $black3;
+    --fg4: $black4;
+    --fg5: $black5;
+  }
+  color: $fg2;
+}
 
-$transition-time: var(--transition-time);
-$font: var(--font), sans-serif;
+@mixin input{
+  @include section;
+}
 
-$shadow-x: var(--shadow-x);
-$shadow-y: var(--shadow-y);
-$shadow-blur: var(--shadow-blur);
-$shadow-spread: var(--shadow-spread);
-$shadow-color-black: var(--shadow-color-black);
-$shadow-color-white: var(--shadow-color-white);
+@mixin clickable{
+  @include section;
+}
 
-$A0: var(--A0);
-$A1: var(--A1);
-$A2: var(--A2);
-$A3: var(--A3);
-$A4: var(--A4);
-$A5: var(--A5);
+body{
+  @if ($theme-type == 1 or $theme-type == 3){
+    --bg0: #{$black0};
+    --bg1: #{$black1};
+    --bg2: #{$black2};
+    --bg3: #{$black3};
+    --bg4: #{$black4};
+    --bg5: #{$black5};
 
-$AA0: var(--AA0);
-$AA1: var(--AA1);
-$AA2: var(--AA2);
-$AA3: var(--AA3);
-$AA4: var(--AA4);
-$AA5: var(--AA5);
+    --fg0: #{$white0};
+    --fg1: #{$white1};
+    --fg2: #{$white2};
+    --fg3: #{$white3};
+    --fg4: #{$white4};
+    --fg5: #{$white5};
+  }
+  @else {
+    --bg0: #{$white0};
+    --bg1: #{$white1};
+    --bg2: #{$white2};
+    --bg3: #{$white3};
+    --bg4: #{$white4};
+    --bg5: #{$white5};
 
-$B0: var(--B0);
-$B1: var(--B1);
-$B2: var(--B2);
-$B3: var(--B3);
-$B4: var(--B4);
-$B5: var(--B5);
-
-$BB0: var(--BB0);
-$BB1: var(--BB1);
-$BB2: var(--BB2);
-$BB3: var(--BB3);
-$BB4: var(--BB4);
-$BB5: var(--BB5);
-
-
-
-
-
-
-
+    --fg0: #{$black0};
+    --fg1: #{$black1};
+    --fg2: #{$black2};
+    --fg3: #{$black3};
+    --fg4: #{$black4};
+    --fg5: #{$black5};
+  }
+  color: $fg2;
+  background: $bg1;
+}
 
 
 
 
+
+
+
+
+@import '../../elementalcss/css/elemental/elemental';
+
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: $bg1;
+  @media (max-width: 1400px){
+    font-size: 18px;
+  }
+}
+
+main {
+  @include content;
+  .content {
+    margin: 0 auto;
+    max-width: 37.5rem;
+    min-height: 100vh;
+    background: $bg4;
+    color: $fg2;
+    padding: 22px 33px;
+    border-left: $border-width solid $black0;
+    border-right: $border-width solid $black0;
+  }
+}
+
+header{
+  @include navigator;
+
+  background: $bg4;
+  border-bottom: $border-width solid $theme;
+  padding: 1rem;
+  max-width: 37.5rem;
+  margin: 0 auto;
+}
 
 
 
@@ -474,6 +322,10 @@ $BB5: var(--BB5);
   box-shadow: $shadow-x $shadow-y $shadow-blur $shadow-spread $shadow-color-white;
   border-bottom-right-radius: $radius2;
 
+  @media (max-width: 1400px){
+    position: static;
+  }
+
   .left {
     float: left;
     width: 50%;
@@ -497,7 +349,7 @@ $BB5: var(--BB5);
       cursor: pointer;
       width: 100%;
       height: 35px;
-      border-radius: $radius1;
+      border-radius: var(--radius1);
       margin: 10px 0;
       transition: $transition-time;
 
@@ -515,27 +367,27 @@ $BB5: var(--BB5);
     }
 
     .theme {
-      background: $theme;
+      background: var(--theme);
     }
 
     .theme2 {
-      background: $theme2;
+      background: var(--theme2);
     }
 
     .b1 {
-      background: $black1;
+      background: var(--black1);
     }
 
     .b3 {
-      background: $black4;
+      background: var(--black4);
     }
 
     .w1 {
-      background: $white1;
+      background: var(--white1);
     }
 
     .w3 {
-      background: $white4;
+      background: var(--white4);
     }
   }
 }

@@ -1,0 +1,138 @@
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: $bg1;
+  @media (max-width: 1400px){
+    font-size: 18px;
+  }
+}
+
+main {
+  @include content;
+  .content {
+    margin: 0 auto;
+    max-width: 37.5rem;
+    min-height: 100vh;
+    background: $bg4;
+    color: $fg2;
+    padding: 22px 33px;
+    border-left: $border-width solid $black0;
+    border-right: $border-width solid $black0;
+  }
+}
+
+header{
+  @include navigator;
+
+  background: $bg4;
+  border-bottom: $border-width solid $theme;
+  padding: 1rem;
+  max-width: 37.5rem;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*{
+  font-family: $font, sans-serif;
+}
+
+.pallate {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  box-shadow: $shadow-x $shadow-y $shadow-blur $shadow-spread $shadow-color-white;
+  border-bottom-right-radius: $radius2;
+
+  @media (max-width: 1400px){
+    position: static;
+  }
+
+  .left {
+    float: left;
+    width: 50%;
+    background: $black1;
+    padding: 40px;
+    border-bottom: $border-width solid $theme;
+  }
+
+  .right {
+    float: right;
+    width: 50%;
+    background: $white1;
+    padding: 40px;
+    border-bottom-right-radius: $radius2;
+    border-bottom: $border-width solid transparent;
+  }
+
+  .left,
+  .right {
+    div {
+      cursor: pointer;
+      width: 100%;
+      height: 35px;
+      border-radius: var(--radius1);
+      margin: 10px 0;
+      transition: $transition-time;
+
+      &:hover {
+        box-shadow: $shadow-x $shadow-y $shadow-blur $shadow-color-white, $shadow-x $shadow-y $shadow-blur $shadow-color-black;
+        // box-shadow: $shadow-x $shadow-y $shadow-blur $shadow-color-black;
+        filter: brightness(110%);
+      }
+
+      &:active {
+        transition: 0s;
+        box-shadow: none;
+        filter: brightness(90%);
+      }
+    }
+
+    .theme {
+      background: $theme;
+    }
+
+    .theme2 {
+      background: $theme2;
+    }
+
+    .b1 {
+      background: $black1;
+    }
+
+    .b3 {
+      background: $black4;
+    }
+
+    .w1 {
+      background: $white1;
+    }
+
+    .w3 {
+      background: $white4;
+    }
+  }
+}

@@ -4,72 +4,118 @@
 <head>
   <meta charset="utf-8">
   <title>Theme Generator 2</title>
-  <link rel="stylesheet" href="css/main.css">
+  <!-- <link rel="stylesheet" href="css/main.css"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style id="initial">
+  body *{display:none!important}
+  body{
+    background-image: url('https://media.giphy.com/media/VseXvvxwowwCc/giphy.gif');
+    background-color: #030303;
+    background-repeat: no-repeat;
+    background-size: 25vh;
+    background-position: center 37.5vh;
+  }</style>
+  <style id="style" type="text/css"></style>
 </head>
 
 <body>
+  <header>
+    This is the header
+  </header>
   <main>
     <div class="content">
       <div class="template">
         <template>
+          <a href="#" title="Enable More Accsesability" onclick=
+          "document.querySelector('body').style.fontSize = '20px';
+          document.querySelector('.pallate').style.position = 'static';this.style.display = 'none'"
+          >More Accsesability</a>
+          <noscript>This appliacation requires javascript to generate themes</noscript>
+          <div class="pallate">
+            <div class="left">
+              <div class="b3"></div>
+              <div class="theme"></div>
+              <div class="w1"></div>
+              <div class="w3"></div>
+              <div class="theme2"></div>
+            </div>
+            <div class="right">
+              <div class="w3"></div>
+              <div class="theme"></div>
+              <div class="b1"></div>
+              <div class="b3"></div>
+              <div class="theme2"></div>
+            </div>
+            <div class="clear"></div>
+          </div>
           <h1>Theme Generator 2</h1>
-          <p>This is color / theme generator second verson</p>
-          <br><button class="b1" onclick="randomize()">Randomize Theme</button>
-          {inputText name="themeName" label="Theme Name" placeholder="My Theme"/}
-          {inputSelect name="themeType" label="Theme Type"
-          options="disabled:Select Option,!1:Dark Theme,2:Light Theme,3:Dark with light content,4:Light with dark parts"/}
-          {inputSelect name="units" label="Units" options="!px:px,em:em,rem:rem"/}
-          <br><h2>Colors</h2>
-          <hr>
-          {inputColor name="mainColor" label="Theme Color" placeholder="#XXXXXX" value="#d95448"/}
-          {inputColor name="secondaryColor" label="Secondary Theme Color" placeholder="#XXXXXX" value="#4893d9"/}
-          {inputColor name="black1" label="Black" placeholder="#XXXXXX" value="#15151E"/}
-          {inputColor name="black2" label="Black Content" placeholder="#XXXXXX" value="#353447"/}
-          {inputColor name="white1" label="White" placeholder="#XXXXXX" value="#e5d9c5"/}
-          {inputColor name="white2" label="White Darker" placeholder="#XXXXXX" value="#c6bda7"/}
-          <br><br><h2>Measures</h2>
-          <hr>
-          {inputText name="borderWidth" label="Border Width" value="2"/}
-          {inputText name="border1" label="Border Radius Small" value="4"/}
-          {inputText name="border2" label="Border Radius Big" value="8"/}
-          {inputText name="transition" label="Transition time in seconds" value="0.2"/}
-          {inputText name="font" label="Font List" value="Ubuntu, Roboto, Oxygen, -apple-system, BlinkMacSystemFont, Segoe UI, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif"/}
-          <br><br><h2>Shadows</h2>
-          <hr>
-
-          {inputSwitch name="useShadow" label="Enable Shadows" onchange="document.querySelector('.shadow-options').open = this.checked" checked/}
-          <details class="shadow-options" open>
-            <summary style="display:none">Shadow Options</summary>
-            {inputText name="shadowX" label="Shadow X offset" value="0"/}
-            {inputText name="shadowY" label="Shadow Y offset" value="2"/}
-            {inputText name="shadowBlur" label="Shadow Blur" value="5"/}
-            {inputText name="shadowSpread" label="Shadow Spread" value="1"/}
-            {inputText name="shadowOpacity" label="Shadow Opacity" value="0.4"/}
+          <p>There are three ways to make a theme here</p>
+          <ol>
+            <li>Click the <b>Quick Theme</b> button to quickly make a theme from a couple questions</li>
+            <li>Or use the <b>Randomize Theme</b> button until you find a theme you like then customize it</li>
+            <li>Or you can manually edit the theme with the <b>Customize Theme</b> button</li>
+          </ol>
+          <p>After you make your theme, press the <b>Generate</b> button if you want to get the SCSS theme or screenshot the color pallate to use in designing</p>
+          <button class="b1" onclick="quickTheme()">Quick Theme</button>
+          <button class="b1" onclick="randomize()">Randomize Theme</button>
+          <button class="b1" onclick="openDetails()">Customize Theme</button>
+          <br><br>
+          <details class="detail">
+            <summary>General Options</summary>
+            {inputText name="themeName" label="Theme Name" placeholder="My Theme"/}
+            {inputSelect name="themeType" label="Theme Type"
+            options="disabled:Select Option,!1:Dark Theme,2:Light Theme,3:Dark with light content,4:Light with dark parts"/}
+            {inputSelect name="units" label="Units" options="!px:px,em:em,rem:rem"/}
           </details>
-          <br><br><button class="b2" onclick="generate()">Generate</button>
+          <details class="detail">
+            <summary>Color Options</summary>
+            <h2>Colors</h2>
+            <hr>
+            {inputColor name="mainColor" label="Theme Color" placeholder="#XXXXXX" value="#d95448"/}
+            {inputColor name="secondaryColor" label="Secondary Theme Color" placeholder="#XXXXXX" value="#4893d9"/}
+            {inputColor name="black1" label="Black" placeholder="#XXXXXX" value="#15151E"/}
+            {inputColor name="black2" label="Black Content" placeholder="#XXXXXX" value="#353447"/}
+            {inputColor name="white1" label="White" placeholder="#XXXXXX" value="#e5d9c5"/}
+            {inputColor name="white2" label="White Darker" placeholder="#XXXXXX" value="#c6bda7"/}
+          </details>
+          <details class="detail">
+            <summary>Measurements</summary>
+            <h2>Measures</h2>
+            <hr>
+            {inputText name="borderWidth" label="Border Width" value="2"/}
+            {inputText name="border1" label="Border Radius Small" value="4"/}
+            {inputText name="border2" label="Border Radius Big" value="8"/}
+            {inputText name="transition" label="Transition time in seconds" value="0.2"/}
+            {inputText name="font" label="Font List" value="Ubuntu, Roboto, Oxygen, -apple-system, BlinkMacSystemFont, Segoe UI, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif"/}
+            <br><br>
+          </details>
+          <details class="detail">
+            <summary>Shadow Options</summary>
+            <h3>Shadows</h3>
+            <hr>
+            <p>Hover over the colors in the top left to test the shadows</p>
+            {inputSwitch name="useShadow" label="Enable Shadows" onchange="document.querySelector('.shadow-options').open = this.checked" checked/}
+            <details class="shadow-options" open>
+              <summary style="display:none">Shadow Options</summary>
+              {inputText name="shadowX" label="Shadow X offset" value="0"/}
+              {inputText name="shadowY" label="Shadow Y offset" value="2"/}
+              {inputText name="shadowBlur" label="Shadow Blur" value="5"/}
+              {inputText name="shadowSpread" label="Shadow Spread" value="1"/}
+              {inputText name="shadowOpacity" label="Shadow Opacity" value="0.4"/}
+            </details>
+          </details>
+          <br><br>
+          <hr>
+          <button class="b2" onclick="generate()">Generate</button>
+
         </template>
       </div>
       <br><br>
     </div>
   </main>
 
-  <div class="pallate">
-    <div class="left">
-      <div class="b3"></div>
-      <div class="theme"></div>
-      <div class="w1"></div>
-      <div class="w3"></div>
-      <div class="theme2"></div>
-    </div><div class="right">
-      <div class="w3"></div>
-      <div class="theme"></div>
-      <div class="b1"></div>
-      <div class="b3"></div>
-      <div class="theme2"></div>
-    </div>
-    <div class="clear"></div>
-  </div>
 
+  <script src="js/sass.js"></script>
   <script src="js/framework.js" charset="utf-8"></script>
   <script src="js/main.js" charset="utf-8"></script>
 </body>

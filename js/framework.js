@@ -31,7 +31,6 @@ function ReplaceTemplateBlocks(template){
 
 function EvalTemplate(text, local={}){
   try {
-    console.log(Object.keys(local) + '');
     return Function(Object.keys(local) + '', text)(...Object.values(local))
   }
   catch (error){
@@ -103,20 +102,20 @@ let TemplateBlocks = {
 
 // Form Blocks
 TemplateBlocks = {...TemplateBlocks,
-  inputText: a => `<label class="form-label" for="form-${a.perams.name}">${a.perams.label}</label><br>
+  inputText: a => `<label class="form-label" for="form-${a.perams.name}">${a.perams.label}</label>
   <input type="text" value="${a.perams.value || ''}" name="${a.perams.name}" id="form-${a.perams.name}" placeholder="${a.perams.placeholder}"/><br>`,
-  inputRange: a => `<label class="form-label" for="form-${a.perams.name}">${a.perams.label}</label><br>
+  inputRange: a => `<label class="form-label" for="form-${a.perams.name}">${a.perams.label}</label>
   <input type="range" value="${a.perams.value || 0}" name="${a.perams.name}" step="${a.perams.step || 1}" id="form-${a.perams.name}"/><br>`,
-  inputDate: a => `<label class="form-label">${a.perams.label}</label><br>
+  inputDate: a => `<label class="form-label">${a.perams.label}</label>
   <input type="date" value="${a.perams.value || ''}" name="${a.perams.name}"/><br>`,
-  inputTime: a => `<label class="form-label">${a.perams.label}</label><br>
+  inputTime: a => `<label class="form-label">${a.perams.label}</label>
   <input type="time" value="${a.perams.value || ''}" name="${a.perams.name}"/><br>`,
   inputColor: a => `<label class="form-label">${a.perams.label}</label><div class="color-wrap">
   <input class="reset-input" name="${a.perams.name}" id="colorInput_${a.perams.name}" placeholder="#XXXXXX"
   value="${a.perams.value}" type="text" onkeyup="document.getElementById('colorInput_${a.perams.name}-inputbox').value = this.value">
   <input id="colorInput_${a.perams.name}-inputbox" value="${a.perams.value}" type="color" onchange="document.getElementById('colorInput_${a.perams.name}').value = this.value">
   </div>`,
-  inputSelect: a => `<label class="form-label">${a.perams.label}</label><br>
+  inputSelect: a => `<label class="form-label">${a.perams.label}</label>
   <select name="${a.perams.name}">
     ${CommaLangArray(a.perams.options, 'name', 'text', 'default').reduce((d, c) => d+'<option value="'+c.name+'" '+(c.default ? 'selected' : '')+' '+(c.name == 'disabled' ? 'disabled' : '')+'>'+c.text+'</option>', '')}
   </select><br>`,
@@ -127,7 +126,7 @@ TemplateBlocks = {...TemplateBlocks,
   inputCheckbox: a => `<label class="checkbox">${a.perams.label}
     <input type="checkbox" name="${a.perams.name}" ${a.perams.checked ? 'checked' : ''}>
     <span class="checkmark"></span>
-  </label><br>`,
+  </label>`,
   inputRadio: a => `<br><label class="form-label">${a.perams.label}</label><br>
   ${CommaLangArray(a.perams.options, 'text', 'name', 'default').reduce((d, c) => {
     return d+`<label class="radio">${c.text}
