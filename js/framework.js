@@ -124,7 +124,7 @@ TemplateBlocks = {...TemplateBlocks,
   <span class="slider"></span>
   </label><label for="switch-${a.perams.name}" class="switch-label">${a.perams.label}</label><br>`,
   inputCheckbox: a => `<label class="checkbox">${a.perams.label}
-    <input type="checkbox" name="${a.perams.name}" ${a.perams.checked ? 'checked' : ''}>
+    <input type="checkbox" name="${a.perams.name}" ${a.perams.checked ? 'checked' : ''} ${a.perams.toggle ? `onchange="ToggleDisplayById('${a.perams.toggle}')"` : ''}>
     <span class="checkmark"></span>
   </label>`,
   inputRadio: a => `<br><label class="form-label">${a.perams.label}</label><br>
@@ -292,4 +292,11 @@ class Prompter extends Template{
 function SafeEval(text){
   let regex = /(([^+-\=\*\/\%\|\<\>\! ])( +)?\(|=>|[^=!<>]=[^=])/;
   return text.match(regex) ? false : true;
+}
+
+// For form items
+
+function ToggleDisplayById(id){
+  let el = document.getElementById(id);
+  el.style.display === 'none' ? el.style.display = '' : el.style.display = 'none'; 
 }
